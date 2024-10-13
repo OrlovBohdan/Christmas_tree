@@ -1,20 +1,23 @@
 fn main() {
-    let triangles = 6; // задайте нужное количество треугольников
-    draw_tree(triangles);
+    let triangles = 6; // Задайте потрібну кількість трикутників
+    draw_tree(triangles); // Викликаємо функцію для малювання ялинки
 }
 
 fn draw_tree(triangles: usize) {
-    let width = triangles * 2 + 1;
+    let width = triangles * 2 + 1; // Визначаємо ширину найширшої частини ялинки
 
+    // Проходимося по кожному трикутнику, використовуючи зовнішній цикл
     (1..=triangles).for_each(|triangle| {
+        // Для кожного трикутника малюємо відповідну кількість рядків
         (0..triangle).for_each(|row| {
-            let stars = 2 * row + 1;
-            let spaces = (width - stars) / 2;
+            let stars = 2 * row + 1; // Кількість зірочок для поточного рядка
+            let spaces = (width - stars) / 2; // Кількість пробілів для вирівнювання по центру
 
+            // Друкуємо рядок із пробілами та зірочками
             println!(
                 "{}{}",
-                " ".repeat(spaces),
-                "*".repeat(stars)
+                " ".repeat(spaces), // Повторюємо пробіли необхідну кількість разів
+                "*".repeat(stars)   // Повторюємо зірочки необхідну кількість разів
             );
         });
     });
